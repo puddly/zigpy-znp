@@ -1,12 +1,12 @@
 [build-system]
-requires = ["setuptools>=61.0.0"]
+requires = ["setuptools>=61.0.0", "wheel", "setuptools-git-versioning<2"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "zigpy-znp"
-version = "0.0.0"
 description = "A library for zigpy which communicates with TI ZNP radios"
 urls = {repository = "https://github.com/zigpy/zigpy-znp"}
+dynamic = ["version"]
 authors = [
     {name = "Alexei Chetroi", email = "alexei.chetroi@outlook.com"}
 ]
@@ -33,6 +33,9 @@ testing = [
     "pytest-cov>=3.0.0",
     "coveralls",
 ]
+
+[tool.setuptools-git-versioning]
+enabled = true
 
 
 [tool.black]
