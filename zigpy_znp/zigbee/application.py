@@ -78,7 +78,7 @@ class ControllerApplication(zigpy.application.ControllerApplication):
     SCHEMA = conf.CONFIG_SCHEMA
 
     def __init__(self, config: conf.ConfigType):
-        super().__init__(config=conf.CONFIG_SCHEMA(config))
+        super().__init__(config=config)
 
         self._znp: ZNP | None = None
         self._version_rsp = None
