@@ -931,7 +931,7 @@ class ControllerApplication(zigpy.application.ControllerApplication):
         # Don't release the concurrency-limiting semaphore until we are done trying.
         # There is no point in allowing requests to take turns getting buffer errors.
         try:
-            async with self._limit_concurrency():
+            async with self._limit_concurrency(priority=packet.priority):
                 for attempt in range(REQUEST_MAX_RETRIES):
                     try:
                         # ZDO requests do not generate `AF.DataConfirm` messages
