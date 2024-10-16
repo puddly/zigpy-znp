@@ -17,7 +17,7 @@ LOGGER = logging.getLogger(__name__)
 async def perform_energy_scan(radio_path, num_scans=None):
     LOGGER.info("Starting up zigpy-znp")
 
-    config = ControllerApplication.SCHEMA({"device": {"path": radio_path}})
+    config = {"device": {"path": radio_path}}
     app = ControllerApplication(config)
     await app.connect()
 
