@@ -1,4 +1,5 @@
 import json
+import asyncio
 import dataclasses
 
 import pytest
@@ -293,6 +294,7 @@ async def test_nwk_frame_counter_zstack30(make_connected_znp):
 
     await security.write_nwk_frame_counter(znp, 0xAABBCCDD)
     assert (await security.read_nwk_frame_counter(znp)) == 0xAABBCCDD
+    await asyncio.sleep(0.1)
 
 
 async def test_nwk_frame_counter_zstack33(make_connected_znp):
@@ -333,6 +335,7 @@ async def test_nwk_frame_counter_zstack33(make_connected_znp):
 
     await security.write_nwk_frame_counter(znp, 0x98765432)
     assert (await security.read_nwk_frame_counter(znp)) == 0x98765432
+    await asyncio.sleep(0.1)
 
 
 def ieee_and_key(text) -> zigpy.state.Key:
